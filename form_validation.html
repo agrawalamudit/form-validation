@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>password validation</title>
+    <link rel="stylesheet" href="file.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="box">
+
+            <h1 id="login_head">Login</h1>
+
+            <form action="" class="element" onsubmit="return foo()">
+
+                <div class="entries">
+                    <label for="">Username</label>
+                    <input type="text" id="uname" name="uname" value=""><br>
+                </div>
+
+                <div class="entries">
+                    <label for="">Password</label>
+                    <input type="password" id="password" name="password" value=""><br>
+                </div>
+
+                <span id="error_txt"></span> <br>
+
+                <div class="entries">
+                    <label for="">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" value=""><br>
+                </div>
+
+                <button id="smt-btn">Submit</button>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+
+
+<script>
+    let username;
+    let password;
+    let confirm_password;
+
+    function foo() {
+        username = document.getElementById("uname").value;
+        password = document.getElementById("password").value;
+        confirm_password = document.getElementById("confirm_password").value;
+
+        if (password == "") {
+            document.getElementById("error_txt").innerText = "Pls enter the password";
+        }
+        else if (password.length < 5) {
+            document.getElementById("error_txt").innerText = "password to short";
+        }
+        else if (password != "" && confirm_password == "") {
+            document.getElementById("error_txt").innerText = "confirm password feild empty";
+
+        }
+        else if (password != confirm_password) {
+            document.getElementById("error_txt").innerText = "password don't match";
+
+        }
+        else if (password == confirm_password) {
+            document.getElementById("error_txt").innerText = "password matched";
+        }
+
+        return false;
+    }
+</script>
+
+</html>
